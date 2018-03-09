@@ -1,5 +1,39 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+@font-face{
+  font-family: 'NeueHaasGrotesk';
+  src: url('./assets/fonts/NHaasGroteskDSPro-15UltTh.otf') format('opentype');
+  font-weight: 100;
+}
+
+@font-face{
+  font-family: 'NeueHaasGrotesk';
+  src: url('./assets/fonts/NHaasGroteskDSPro-25Th.otf') format('opentype');
+  font-weight: 200;
+}
+
+@font-face{
+  font-family: 'NeueHaasGrotesk';
+  src: url('./assets/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype'),
+       url('./assets/fonts/NHaasGroteskTXPro-55Rg.otf') format('opentype');
+  font-weight: 500;
+}
+
+@font-face{
+  font-family: 'NeueHaasGrotesk';
+  src: url('./assets/fonts/NHaasGroteskTXPro-65Md.ttf') format('truetype'),
+       url('./assets/fonts/NHaasGroteskTXPro-65Md.otf') format('opentype');
+  font-weight: 600;
+}
+
+@font-face{
+  font-family: 'NeueHaasGrotesk';
+  src: url('./assets/fonts/NHaasGroteskTXPro-75Bd.ttf') format('truetype'),
+       url('./assets/fonts/NHaasGroteskTXPro-75Bd.otf') format('opentype');
+  font-weight: 700;
+}
+
+html, body {
+  font-family: 'NeueHaasGrotesk', 'Courier';
+  font-weight: 500;
+  height: 100%;
+  width: 100%;
 }

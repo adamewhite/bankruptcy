@@ -1,0 +1,496 @@
+/* global styling */
+
+html, body {
+  font-family: 'NeueHaasGrotesk';
+  font-weight: 500;
+}
+
+header nav {
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 25vh;
+}
+
+header nav div#logo {
+  flex: 2 0 40%;
+
+  h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-top: -.1rem;
+    transition: all .5s;
+  }
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100px;
+  // border: 1px solid yellow;
+
+  .lowerList, .upperList {
+    list-style-type: none;
+    display: flex;
+    flex: row nowrap;
+    justify-content: flex-end;
+    // border: 1px solid green;
+
+    li {
+      padding: 3px 45px 3px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        border-bottom: 2px solid black;
+      }
+    }
+  }
+
+  .upperList a {
+    font-weight: 500;
+  }
+
+  .lowerList a {
+    font-weight: 600;
+  }
+}
+
+.cross {
+   width: 20px;
+   height: 20px;
+   position: relative;
+   z-index: 5;
+}
+
+.cross:before, .cross:after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  background-color: white;
+  transition: background-color .7s;
+}
+
+.cross:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%;
+}
+
+.cross:after {
+  top: 50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%;
+}
+
+header nav ul#redBox {
+  flex: 1 0 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  border: 2px solid red;
+  background-color: red;
+  height: 100px;
+  max-width: 12vw;
+  transition: all .7s;
+}
+
+header nav ul#redBox li {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5rem;
+  transition: all .7s;
+}
+
+header nav ul#redBox li a {
+  text-decoration: none;
+  align-self: center;
+  color: white;
+  font-weight: 500;
+  letter-spacing: .03rem;
+  text-align: right;
+  transition: all .7s;
+}
+
+header nav ul#redBox:hover {
+  background-color: white;
+}
+
+header nav ul#redBox:hover a  {
+  color: red;
+}
+
+header nav ul#redBox:hover div.cross:before,
+header nav ul#redBox:hover div.cross:after  {
+  background-color: red;
+}
+
+header nav ul#redBox:active {
+  background-color: darken(red, 7%);
+  border: 2px solid darken(red, 7%);
+}
+
+div#sectionContainer {
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-between;
+  // border: 1px solid green;
+  min-height: 75vh;
+
+  section {
+    width: 50%;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    margin: 1vh 2vw;
+    // border: 1px solid yellow;
+    // align-items: center;
+
+    h4 {
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: 500;
+      text-align: center;
+
+      &:last-child {
+        margin-top: .5rem;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        font-weight: 600;
+      }
+    }
+
+    ul {
+      // align-self: center;
+      // text-align: center;
+      padding: .5rem;
+      background-color: black;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-flow: column nowrap;
+        margin: 1rem 2rem;
+        overflow: hidden;
+        // border: 1px solid pink;
+
+        ul#notice {
+          color: red;
+          font-size: 1.5rem;
+        }
+
+        label {
+          flex: 1 2 0;
+          padding: .5rem 1rem 0rem 0;
+          font-size: 1rem;
+          font-weight: 200;
+          align-self: flex-start;
+          color: white;
+          letter-spacing: 1.5px;
+          opacity: 1;
+          transition: all .5s;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+          flex: 2 0 0;
+          width: 100%;
+          background-color: black;
+          font-size: 1.3rem;
+          padding: .4rem;
+          margin: .5rem 0;
+          border: none;
+          border-top: 2px solid white;
+          color: white;
+        }
+
+        input[type="text"]:focus + label,
+        input[type="password"]:focus + label,
+        input[type="text"]:active + label,
+        input[type="password"]:active + label {
+            opacity: 1;
+        }
+
+        a, p {
+          color: white;
+          padding: .5rem;
+
+          &:hover {
+            border-bottom: 2px solid white;
+            font-family: 200 !important;
+          }
+        }
+
+        span {
+          color: white;
+          align-self: center;
+          font-size: 1.5rem;
+          padding-top: .5rem;
+        }
+
+        button[type="submit"] {
+          flex: 1 0 0;
+          // border: 2px solid black;
+          border: none;
+          align-self: flex-end;
+          margin: .5rem;
+          background-color: white;
+          color: black;
+          font-size: 1.4rem;
+          font-weight: 200;
+          letter-spacing: .1rem;
+          padding: 1rem 3rem;
+          transition: background-color .5s, color .5s;
+
+          &:hover {
+            background-color: red;
+            color: black;
+            cursor: pointer;
+          }
+
+          &:active {
+            background-color: rgba(255,10,10,1);
+          }
+        }
+      }
+    }
+  }
+}
+
+// section#signin,
+// section#signup {
+//   width: 50%;
+//   display: flex;
+//   flex-flow: column wrap;
+//   justify-content: center;
+//   // background-color: black;
+// }
+
+// section#signin ul,
+// section#signup ul {
+//   text-align: center;
+// }
+
+// section#signin ul li,
+// section#signup ul li {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex-flow: row nowrap;
+//   margin: 1rem 2rem;
+//   overflow: hidden;
+// }
+
+// section#signin ul li ul#notice,
+// section#signup ul li ul#notice {
+//   color: red;
+//   font-size: 1.5rem;
+// }
+
+// section#signin ul li span,
+// section#signup ul li span {
+//   flex: 1 2 0;
+//   padding: .5rem 1rem .5rem 0;
+//   font-size: 1.6rem;
+//   font-weight: 600;
+//   align-self: center;
+// }
+
+// section#login ul li input[type="text"],
+// section#login ul li input[type="email"],
+// section#login ul li input[type="password"], {
+//   flex: 2 0 0;
+//   border: 2px solid black;
+//   font-size: 1.3rem;
+//   padding: .4rem;
+//   margin: .5rem 0;
+// }
+
+// section#login ul li input[type="submit"] {
+//   flex: 1 0 0;
+//   border: 2px solid black;
+//   margin: .5rem 5rem;
+//   background-color: black;
+//   font-size: 1.5rem;
+//   font-weight: 200;
+//   letter-spacing: .1rem;
+//   padding: 1rem .3rem;
+//   color: white;
+//   transition: background-color .5s, color .5s;
+
+//   &:hover {
+
+//   }
+// }
+
+// section#login ul li#rememberme {
+//   // display: flex;
+//   // justify-content: space-between;
+//   margin: 0 auto;
+// }
+
+// section#login ul li#rememberme h3 {
+//   margin: 0 1rem 0 auto;
+//   font-size: 1.1rem;
+// }
+
+// section#login ul li#rememberme input {
+//   width: 1rem;
+//   margin: 0;
+//   padding: 0;
+//   opacity: 0;
+// }
+
+// section#login ul li#rememberme input + label {
+//   display: inline-block;
+//   margin: 0 auto 0 -1rem;
+//   padding: .8rem;
+//   border: 2px solid black;
+//   background-color: white;
+// }
+
+// section#login ul li#rememberme input:hover + label {
+//   // background-color: rgba(219,220,219,1);
+// }
+
+// // section#login ul li#rememberme input:checked + label {
+// //   background-image: url('xmark.jpg');
+// //   background-repeat: no-repeat;
+// //   background-size: 1.2rem 1.2rem;
+// //   background-position: .2rem;
+// // }
+
+// section#login ul li input[type="submit"]:hover {
+//   background-color: white;
+//   color: black;
+// }
+
+// section#login ul li input[type="submit"]:active {
+//   background-color: rgba(202,203,201,1);
+// }
+
+// section#login h4 {
+//   margin-top: 1rem;
+//   font-size: 1rem;
+//   font-weight: 500;
+//   text-align: center;
+// }
+
+// section#login h4:last-child {
+//   margin-top: .5rem;
+// }
+
+// section#login a {
+//   text-decoration: none;
+//   color: black;
+// }
+
+// section#login a:hover {
+//   font-weight: 600;
+// }
+
+// @media (max-width: 1000px) {
+
+//   section#title div#logo h3 {
+//     color: white;
+//     font-size: 4rem;
+//     font-weight: 700;
+//   }
+
+//   section#login ul li span {
+//     padding: .4rem .6rem .4rem 0;
+//     font-size: 1.3rem;
+//   }
+
+//   section#login ul li input[type="text"],
+//   section#login ul li input[type="password"], {
+//     font-size: 1.2rem;
+//     padding: .3rem;
+//     margin: .3rem 0;
+//   }
+
+//   section#login ul li input[type="submit"] {
+//     font-size: 1.3rem;
+//     font-weight: 200;
+//   }
+
+//   section#login ul li span#notice {
+//     font-size: 1.3rem;
+//   }
+
+// }
+
+// @media (max-width: 800px) {
+
+//   div#contains,
+//   section#title,
+//   section#login {
+//     display: block;
+//     width: 100%;
+//   }
+
+//   section#title div#logo {
+//     text-align: left;
+//     margin: 0 auto 0 2rem;
+//     padding: 1.5rem 0;
+//   }
+
+//   section#title div#logo h3 {
+//     color: white;
+//     font-size: 3rem;
+//     font-weight: 700;
+//   }
+
+//   section#login ul li span {
+//     padding-right: .5rem;
+//     font-size: 1.3rem;
+//   }
+
+//   section#login ul li input[type="text"],
+//   section#login ul li input[type="email"],
+//   section#login ul li input[type="password"], {
+//     font-size: 1.2rem;
+//     padding: .3rem;
+//     margin: .3rem 0;
+//   }
+
+//   section#login ul li input[type="submit"] {
+//     font-size: 1.3rem;
+//     font-weight: 200;
+//   }
+
+//   section#login ul li span#notice {
+//     font-size: 1.3rem;
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+

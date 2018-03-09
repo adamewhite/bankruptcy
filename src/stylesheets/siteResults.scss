@@ -1,0 +1,192 @@
+section.results {
+  border-top: 2px solid black;
+  margin: 2rem 2rem;
+}
+
+section.results div.results_banner {
+  display: flex;
+  justify-content: align-left;
+  border-bottom: 1px solid black;
+}
+
+section.results div.results_banner p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+}
+
+section.results table {
+  width: 100%;
+  margin: 0;
+  font-size: 1.1rem;
+  border-collapse: collapse;
+}
+
+section.results table thead th {
+  font-weight: 600;
+  padding: .5rem 1rem;
+  border-bottom: 2px solid black;
+  vertical-align: middle;
+}
+
+section.results table thead th:hover {
+  cursor: pointer;
+}
+
+section.results table thead th:hover a {
+  color: red;
+}
+
+section.results table tbody td {
+  padding: .4rem .5rem .3rem;
+  height: 80px;
+  text-align: center;
+  font-weight: 500;
+  border-bottom: 1px solid black;
+  vertical-align: middle;
+}
+
+section.results table thead th:nth-child(1),
+section.results table tbody td:nth-child(1) {
+  width: 18%;
+}
+
+section.results table thead th:nth-child(2),
+section.results table tbody td:nth-child(2) {
+  width: 25%;
+}
+
+section.results table thead th:nth-child(3),
+section.results table tbody td:nth-child(3) {
+  width: 13%;
+}
+
+section.results table thead th:nth-child(4),
+section.results table tbody td:nth-child(4) {
+  width: 9%;
+}
+
+section.results table thead th:nth-child(5),
+section.results table tbody td:nth-child(5) {
+  width: 15%;
+}
+
+section.results table thead th:nth-child(6),
+section.results table tbody td:nth-child(6) {
+  width: 10%;
+}
+
+section.results table thead th:nth-child(7),
+section.results table tbody td:nth-child(7) {
+  width: 10%;
+}
+
+section.results table tbody tr:hover {
+  background-color: black;
+}
+
+section.results table tbody tr:hover td {
+  font-weight: 200;
+  letter-spacing: .09rem;
+  color: white;
+}
+
+section.results table tbody tr img.editing {
+  height: 20px;
+}
+
+section.results table tbody tr:hover img.editing {
+  height: 20px;
+}
+
+section.results table tbody tr td a {
+  padding: .5rem;
+}
+
+section.results table tbody tr:hover td a:first-child{
+  color: green;
+  cursor: pointer;
+}
+
+section.results table tbody tr:hover td a:last-child {
+  color: red;
+  cursor: pointer;
+}
+
+section.results table tbody tr:hover td:first-child {
+  font-weight: 200;
+  letter-spacing: .09rem;
+  color: red;
+}
+
+section.results table tbody tr td input,
+section.results table tbody tr td select {
+    border: 1px solid black;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: 200;
+    padding: .2rem;
+    text-overflow: ellipsis;
+    background-color: white;
+    color: black;
+    -webkit-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    border-radius: 0px;
+    width: 100%;
+}
+
+section.results ul.pagination {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: auto;
+  margin: 1.5rem auto 8rem;
+}
+
+section.results ul.pagination li {
+  flex: 1 1 auto;
+  display: inline;
+  /*margin: .2rem 0;*/
+  /*max-width: 1rem;*/
+}
+
+section.results ul.pagination li a {
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: 1px solid black;
+  height: 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: .3rem 1rem;
+  color: black;
+  background-color: white;
+  /*width: 7rem;*/
+}
+
+section.results ul.pagination li a:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+/*
+section.results ul.pagination li.active {
+  background-color: yellow;
+  color: white;
+}*/
+
+section.results ul.pagination li.disabled {
+  /*background-color: red;*/
+  pointer-events: none;
+  color: red;
+}
+
+section.results ul.pagination li.disabled a {
+  color: red;
+}

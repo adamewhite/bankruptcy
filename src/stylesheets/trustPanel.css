@@ -1,0 +1,91 @@
+.invisible {
+  visibility: hidden; }
+
+section.trusts {
+  flex: 1 0 0;
+  margin: 0;
+  padding: 1rem 0 0;
+  margin: 0 2rem 0 .5rem;
+  border-top: 2px solid black;
+  overflow-y: scroll;
+  height: 100vh; }
+
+section.trusts h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
+  padding-left: .3rem; }
+
+section.trusts h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: .5rem 0;
+  border-bottom: .5px solid black;
+  padding-left: .3rem; }
+
+.displaynone {
+  display: none; }
+
+section.trusts ul {
+  margin-top: .5rem;
+  counter-reset: bullet-counter; }
+
+section.trusts ul li {
+  margin-left: 2.2rem;
+  position: relative;
+  font-size: 1.4rem;
+  padding: .2rem .2rem;
+  letter-spacing: .02rem;
+  transition-property: all 1s ease 0s; }
+
+section.trusts h3.eligibleTrusts {
+  position: relative; }
+
+section.trusts ul li::before {
+  content: counter(bullet-counter, decimal-leading-zero);
+  counter-increment: bullet-counter;
+  position: absolute;
+  left: -1.9rem;
+  font-size: 1.4rem;
+  font-weight: 100;
+  color: red; }
+
+section.trusts ul li::after {
+  content: '';
+  position: absolute;
+  background-color: red;
+  top: -.06rem;
+  left: -2.2rem;
+  z-index: -1;
+  width: 0;
+  height: 105%; }
+
+section.trusts ul li:hover::after,
+section.trusts h3.eligibleTrusts:hover::after {
+  width: calc(100% + 2.2rem); }
+
+section.trusts ul li:hover {
+  color: white;
+  font-weight: 200;
+  letter-spacing: .11em;
+  cursor: pointer; }
+
+section.trusts ul li:hover::before {
+  color: white;
+  font-weight: 100; }
+
+section.trusts ul li.faded span {
+  opacity: .6; }
+
+section.trusts ul li.faded:hover {
+  color: black;
+  font-weight: 500;
+  letter-spacing: .02rem;
+  cursor: auto; }
+
+section.trusts ul li.faded:hover::after {
+  width: 0; }
+
+section.trusts ul li.faded:hover::before {
+  color: red; }

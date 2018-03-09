@@ -1,0 +1,143 @@
+header nav {
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav div#logo {
+  flex: 2 0 40%;
+}
+
+header nav h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: -.1rem;
+  transition: all .5s;
+}
+
+header nav div#logo:hover h3 {
+  // color: #444;
+  // text-shadow:
+  //   1px 0px 1px #ccc, 0px 1px 1px #eee,
+  //   2px 1px 1px #ccc, 1px 2px 1px #eee,
+  //   3px 2px 1px #ccc, 2px 3px 1px #eee,
+  //   4px 3px 1px #ccc, 3px 4px 1px #eee,
+  //   5px 4px 1px #ccc;
+}
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100px;
+  // border: 1px solid yellow;
+
+  .lowerList, .upperList {
+    list-style-type: none;
+    display: flex;
+    flex: row nowrap;
+    justify-content: flex-end;
+    // border: 1px solid green;
+
+    li {
+      padding: 3px 45px 3px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        border-bottom: 2px solid black;
+      }
+    }
+  }
+
+  .upperList a {
+    font-weight: 500;
+  }
+
+  .lowerList a {
+    font-weight: 600;
+  }
+}
+
+.cross {
+   width: 20px;
+   height: 20px;
+   position: relative;
+   z-index: 5;
+}
+
+.cross:before, .cross:after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  background-color: white;
+  transition: background-color .7s;
+}
+
+.cross:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%;
+}
+
+.cross:after {
+  top: 50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%;
+}
+
+header nav ul#redBox {
+  flex: 1 0 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  border: 2px solid red;
+  background-color: red;
+  height: 100px;
+  max-width: 12vw;
+  transition: all .7s;
+}
+
+header nav ul#redBox li {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5rem;
+  transition: all .7s;
+}
+
+header nav ul#redBox li a {
+  text-decoration: none;
+  align-self: center;
+  color: white;
+  font-weight: 500;
+  letter-spacing: .03rem;
+  text-align: right;
+  transition: all .7s;
+}
+
+header nav ul#redBox:hover {
+  background-color: white;
+}
+
+header nav ul#redBox:hover a  {
+  color: red;
+}
+
+header nav ul#redBox:hover div.cross:before,
+header nav ul#redBox:hover div.cross:after  {
+  background-color: red;
+}
+
+header nav ul#redBox:active {
+  background-color: darken(red, 7%);
+  border: 2px solid darken(red, 7%);
+}

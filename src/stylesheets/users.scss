@@ -1,0 +1,238 @@
+/* global styling */
+
+html, body {
+  font-family: 'NeueHaasGrotesk';
+  font-weight: 500;
+}
+
+div#contains {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 100vh;
+}
+
+section#title {
+  width: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  background-color: black;
+}
+
+section#title div#logo {
+  align-self: center;
+}
+
+section#title div#logo h3 {
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+div#contains > div {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+form.newuser {
+  // width: 50%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  overflow: auto;
+}
+
+form.newuser ul {
+  text-align: center;
+}
+
+form.newuser ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row nowrap;
+  margin: 1rem 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+form.newuser ul li span#notice {
+  color: red;
+  font-size: 1.5rem;
+}
+
+form.newuser ul li span {
+  flex: 1 2 0;
+  padding: .5rem 1rem .5rem 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  align-self: center;
+}
+
+form.newuser ul li span#input_tag {
+  position: absolute;
+}
+
+form.newuser ul li span#input_tag::before {
+  content: "Required";
+  font-size: .9rem;
+  color: red;
+  top: 1rem;
+  right: 1rem;
+}
+
+form.newuser ul li span#input_tag + input {
+  border: 2px solid red;
+}
+
+form.newuser ul li input[type="text"],
+form.newuser ul li input[type="password"], {
+  flex: 2 0 0;
+  border: 2px solid black;
+  font-size: 1.3rem;
+  padding: .4rem;
+  margin: .5rem 0;
+}
+
+form.newuser ul li input[type="submit"],
+form.newuser ul li a {
+  flex: 1 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border: 2px solid black;
+  height: 4rem;
+  margin: .5rem 1rem;
+  background-color: black;
+  font-size: 1.5rem;
+  font-weight: 200;
+  letter-spacing: .1rem;
+  padding: 1rem .3rem;
+  color: white;
+  transition: background-color .5s, color .5s;
+}
+
+form.newuser ul li input[type="submit"]:hover,
+form.newuser ul li a:hover {
+  background-color: white;
+  color: black;
+}
+
+form.newuser ul li input[type="submit"]:active,
+form.newuser ul li a:active {
+  background-color: rgba(202,203,201,1);
+}
+
+form.newuser h4 {
+  margin-top: .5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  color: red;
+}
+
+.field_with_errors:first-child {
+  flex: 1 2 0;
+}
+
+.field_with_errors:last-child {
+  flex: 2 0 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.field_with_errors input {
+  border: 2px solid red !important;
+  // width: 75%;
+  // background-color: yellow;
+}
+
+@media (max-width: 1000px) {
+
+  section#title div#logo h3 {
+    color: white;
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  form.newuser ul li span {
+    padding: .4rem .6rem .4rem 0;
+    font-size: 1.3rem;
+  }
+
+  form.newuser ul li input[type="text"],
+  form.newuser ul li input[type="password"], {
+    font-size: 1.2rem;
+    padding: .3rem;
+    margin: .3rem 0;
+  }
+
+  form.newuser ul li input[type="submit"] {
+    font-size: 1.3rem;
+    font-weight: 200;
+  }
+
+  form.newuser ul li span#notice {
+    font-size: 1.3rem;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  div#contains,
+  section#title,
+  form.newuser {
+    display: block;
+    width: 100%;
+  }
+
+  form.newuser div#logo {
+    text-align: left;
+    margin: 0 auto 0 2rem;
+    padding: 1.5rem 0;
+  }
+
+  form.newuser div#logo h3 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  form.newuser ul li span {
+    padding-right: .5rem;
+    font-size: 1.3rem;
+  }
+
+  form.newuser ul li input[type="text"],
+  form.newuser ul li input[type="password"], {
+    font-size: 1.2rem;
+    padding: .3rem;
+    margin: .3rem 0;
+  }
+
+  form.newuser ul li input[type="submit"] {
+    font-size: 1.3rem;
+    font-weight: 200;
+  }
+
+  form.newuser ul li span#notice {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+header nav {
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center; }
+
+header nav div#logo {
+  flex: 2 0 40%; }
+
+header nav h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: -.1rem;
+  transition: all .5s; }
+
+.lists {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  height: 100px; }
+  .lists .lowerList, .lists .upperList {
+    list-style-type: none;
+    display: flex;
+    flex: row nowrap;
+    justify-content: flex-end; }
+    .lists .lowerList li, .lists .upperList li {
+      padding: 3px 45px 3px 0; }
+    .lists .lowerList a, .lists .upperList a {
+      text-decoration: none;
+      color: black; }
+      .lists .lowerList a:hover, .lists .upperList a:hover {
+        border-bottom: 2px solid black; }
+  .lists .upperList a {
+    font-weight: 500; }
+  .lists .lowerList a {
+    font-weight: 600; }
+
+.cross {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 5; }
+
+.cross:before, .cross:after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  background-color: white;
+  transition: background-color .7s; }
+
+.cross:before {
+  left: 50%;
+  width: 30%;
+  margin-left: -15%;
+  height: 100%; }
+
+.cross:after {
+  top: 50%;
+  height: 30%;
+  margin-top: -15%;
+  width: 100%; }
+
+header nav ul#redBox {
+  flex: 1 0 10%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+  border: 2px solid red;
+  background-color: red;
+  height: 100px;
+  max-width: 12vw;
+  transition: all .7s; }
+
+header nav ul#redBox li {
+  display: flex;
+  justify-content: flex-end;
+  padding: .5rem;
+  transition: all .7s; }
+
+header nav ul#redBox li a {
+  text-decoration: none;
+  align-self: center;
+  color: white;
+  font-weight: 500;
+  letter-spacing: .03rem;
+  text-align: right;
+  transition: all .7s; }
+
+header nav ul#redBox:hover {
+  background-color: white; }
+
+header nav ul#redBox:hover a {
+  color: red; }
+
+header nav ul#redBox:hover div.cross:before,
+header nav ul#redBox:hover div.cross:after {
+  background-color: red; }
+
+header nav ul#redBox:active {
+  background-color: #db0000;
+  border: 2px solid #db0000; }
