@@ -63,6 +63,8 @@ class SignInForm extends Component {
       .then((authUser) => {
         this.setState(() => ({ ...INITIAL_STATE }));
         this.props.updateAuthUser(authUser);
+        console.log(authUser);
+        console.log(routes.SEARCH);
         history.push(routes.SEARCH);
       })
       .catch(error => {
