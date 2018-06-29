@@ -207,8 +207,7 @@ class Search extends Component {
   // render
 
     render () {
-      return
-      				<div className="contains">
+      return	<div className="contains">
                 <div className="containsSearchAndTrusts">
                   <SearchPanel
                     searchObj={this.state.searchObj}
