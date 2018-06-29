@@ -33,6 +33,7 @@ const PageFade = (props) =>
 
 const Layout = ({ children }) => (
   <section>
+		<Navbar />
     {children}
   </section>
 );
