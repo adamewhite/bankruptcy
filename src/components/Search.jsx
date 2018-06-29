@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../stylesheets/sites.css';
 
-import Navbar from './navigation/Navbar';
+// import Navbar from './navigation/Navbar';
 import SearchPanel from './search/search_panel';
 import SitesPanel from './sites/sites_panel';
 import TrustPanel from './trusts/trust_panel';
