@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, NavLink } from 'react-router-dom';
 
-import { SignUpLink } from './SignUp';
-import { PasswordForgetLink } from './PasswordForget';
+// import { SignUpLink } from './SignUp';
+// import { PasswordForgetLink } from './PasswordForget';
 import { auth } from '../../firebase';
 import * as routes from '../../constants/routes';
 
-const SignInPage = ({ history }) =>
-  <div>
-    <SignInForm history={history} />
-  </div>
-
-const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value,
-});
+class SignInPage extends Component {
+  render() {
+    return (<div>
+              <SignInForm history={this.props.history} updateAuthUser={this.props.updateAuthUser} />
+            </div>
+          )
+  }
+}
 
 const INITIAL_STATE = {
   email: '',
@@ -26,10 +26,29 @@ class SignInForm extends Component {
     super(props);
 
     this.state = { ...INITIAL_STATE };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onSubmit = (event) => {
-    event.preventDefault();
+  handleChange(e) {
+    e.preventDefault();
+
+    let node = document.getElementsByName(`${e.target.name}`)[0];
+    let targetedLabel = document.getElementById(`${e.target.name}Label`);
+
+    if (node.value !== '') {
+      targetedLabel.style.opacity = 1;
+    } else {
+      targetedLabel.style.opacity = 0;
+    }
+
+    if (e.target.name === "signInEmail") this.setState({ email: e.target.value });
+    if (e.target.name === "signInPassword") this.setState({ password: e.target.value });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
 
     const {
       email,
@@ -41,14 +60,13 @@ class SignInForm extends Component {
     } = this.props;
 
     auth.doSignInWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log("you're doing great", routes);
+      .then((authUser) => {
         this.setState(() => ({ ...INITIAL_STATE }));
-        history.push(routes.HOME);
+        this.props.updateAuthUser(authUser);
+        history.push(routes.SEARCH);
       })
       .catch(error => {
-        console.log("failing bigtime");
-        this.setState(byPropKey('error', error));
+        this.setState({ error: error });
       });
   }
 
@@ -64,41 +82,39 @@ class SignInForm extends Component {
       email === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <ul>
           <li>
             <span>Have an account?</span>
           </li>
           <li>
-          <label for="email">Email Address</label>
-          <input
-            value={email}
-            onChange={event => this.setState(byPropKey('email', event.target.value))}
-            type="text"
-            placeholder="Email Address"
-          />
-
+            <label htmlFor="email" id="signInEmailLabel">Email Address</label>
+            <input
+              value={email}
+              onChange={this.handleChange}
+              type="text"
+              name="signInEmail"
+              placeholder="Enter Your Email Address"
+            />
           </li>
-            <li>
-            <label for="password">Password</label>
+          <li>
+            <label htmlFor="password" id="signInPasswordLabel">Password</label>
             <input
               value={password}
-              onChange={event => this.setState(byPropKey('password', event.target.value))}
+              onChange={this.handleChange}
               type="password"
-              placeholder="Password"
+              name="signInPassword"
+              placeholder="Enter Your Password"
             />
-
           </li>
-            <li>
-          <button disabled={isInvalid} type="submit">
-            Sign In
-          </button>
-          </li>
-          <li>
-            { error && <p>{error.message}</p> }
+          <li className="errorsAndButton">
+            <div>{ error && <p className="error">{error.message}</p> }</div>
+            <button disabled={isInvalid} id="tester" type="submit">
+              Sign In
+            </button>
           </li>
           <li>
-            <PasswordForgetLink />
+            <NavLink to="/pw-forget">Forgot Your Password?</NavLink>
           </li>
         </ul>
       </form>
@@ -109,5 +125,5 @@ class SignInForm extends Component {
 export default withRouter(SignInPage);
 
 export {
-  SignInForm,
+  SignInForm
 };

@@ -7,11 +7,15 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 import sitesRoutes from './src/routes/sitesRoutes';
 import trustsRoutes from './src/routes/trustsRoutes';
+import App from './src/components/App';
 
 
 //and create our instances
 var app = express();
 var router = express.Router();
+
+//set our port to either a predetermined port number if you have set it up, or 3001
+var port = process.env.API_PORT || 3001;
 
 //db config
 var mongoDB = 'mongodb://adam_white:asby@ds161026.mlab.com:61026/asbestos_trust_db';
@@ -35,12 +39,19 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.use('/api', router);
 
 sitesRoutes(router);
 trustsRoutes(router);
 
-//set our port to either a predetermined port number if you have set it up, or 3001
-var port = process.env.API_PORT || 3001;
+app.get('*', (req, res) => {
+    // const innerContent = renderToString(<App pathname={req.url} />);
+
+    // const html = renderToStaticMarkup(<Html innerContent={innerContent} />);
+
+    res.send(App);
+});
+
 
 //starts the server and listens for requests
 app.listen(port, function() {

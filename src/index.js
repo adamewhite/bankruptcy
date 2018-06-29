@@ -1,9 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './index.css';
 import 'normalize.css';
-import Access from './components/access/Access';
+import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Access />, document.getElementById('root'));
+const Main = () => (
+  <BrowserRouter basename={'/bankruptcy'}>
+    <Route path="/" component={App} />
+  </BrowserRouter>
+);
+
+ReactDOM.render(<Main />, document.getElementById('root'));
 registerServiceWorker();

@@ -43,7 +43,7 @@ class SearchPanel extends Component {
 	render () {
 		return (
     <form className="search" onSubmit={this.handleSearchSubmit}>
-     <span></span>
+     <hr />
      <ul>
       <li>
        <label className={this.state.invalid ? 'invalid' : ''} htmlFor="name">Site Name</label>
@@ -82,26 +82,6 @@ class SearchPanel extends Component {
         data={this.props.searchObj.country}
         handleChange={this.handleChange}
        />
-      </li>
-      <li>
-        <label htmlFor="date_from">Date From</label>
-        <DateSelector
-          className=""
-          classes="fulldatefield"
-          name="date_from"
-          date={this.props.searchObj.date_from}
-          handleDateChange={this.props.handleDateChange}
-        />
-      </li>
-      <li>
-        <label htmlFor="date_to">Date To</label>
-        <DateSelector
-          className=""
-          classes="fulldatefield"
-          name="date_to"
-          date={this.props.searchObj.date_to}
-          handleDateChange={this.props.handleDateChange}
-        />
       </li>
       <li className="button_container">
        <input

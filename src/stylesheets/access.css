@@ -1,202 +1,140 @@
-/* global styling */
-html, body {
-  font-family: 'NeueHaasGrotesk';
-  font-weight: 500; }
-
-header nav {
-  margin: 0 auto;
-  padding: 1rem 2rem;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 25vh; }
-
-header nav div#logo {
-  flex: 2 0 40%; }
-  header nav div#logo h3 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-top: -.1rem;
-    transition: all .5s; }
-
-.lists {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  height: 100px; }
-  .lists .lowerList, .lists .upperList {
-    list-style-type: none;
-    display: flex;
-    flex: row nowrap;
-    justify-content: flex-end; }
-    .lists .lowerList li, .lists .upperList li {
-      padding: 3px 45px 3px 0; }
-    .lists .lowerList a, .lists .upperList a {
-      text-decoration: none;
-      color: black; }
-      .lists .lowerList a:hover, .lists .upperList a:hover {
-        border-bottom: 2px solid black; }
-  .lists .upperList a {
-    font-weight: 500; }
-  .lists .lowerList a {
-    font-weight: 600; }
-
-.cross {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  z-index: 5; }
-
-.cross:before, .cross:after {
-  content: "";
-  position: absolute;
-  z-index: 5;
-  background-color: white;
-  transition: background-color .7s; }
-
-.cross:before {
-  left: 50%;
-  width: 30%;
-  margin-left: -15%;
-  height: 100%; }
-
-.cross:after {
-  top: 50%;
-  height: 30%;
-  margin-top: -15%;
-  width: 100%; }
-
-header nav ul#redBox {
-  flex: 1 0 10%;
-  display: flex;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  border: 2px solid red;
-  background-color: red;
-  height: 100px;
-  max-width: 12vw;
-  transition: all .7s; }
-
-header nav ul#redBox li {
-  display: flex;
-  justify-content: flex-end;
-  padding: .5rem;
-  transition: all .7s; }
-
-header nav ul#redBox li a {
-  text-decoration: none;
-  align-self: center;
-  color: white;
-  font-weight: 500;
-  letter-spacing: .03rem;
-  text-align: right;
-  transition: all .7s; }
-
-header nav ul#redBox:hover {
-  background-color: white; }
-
-header nav ul#redBox:hover a {
-  color: red; }
-
-header nav ul#redBox:hover div.cross:before,
-header nav ul#redBox:hover div.cross:after {
-  background-color: red; }
-
-header nav ul#redBox:active {
-  background-color: #db0000;
-  border: 2px solid #db0000; }
-
 div#sectionContainer {
+  align-items: flex-start;
   display: flex;
   flex: row nowrap;
   justify-content: space-between;
-  min-height: 75vh; }
+  min-height: 85vh; }
   div#sectionContainer section {
-    width: 50%;
+    margin-top: 5px;
     min-height: 100%;
+    min-width: calc(50% - 20px); }
+  div#sectionContainer section#signin {
+    margin-right: 10px; }
+  div#sectionContainer section#signup {
+    margin-left: 10px; }
+  div#sectionContainer form {
     display: flex;
     flex-flow: column wrap;
-    justify-content: flex-start;
-    margin: 1vh 2vw; }
-    div#sectionContainer section h4 {
-      margin-top: 1rem;
+    justify-content: flex-start; }
+    div#sectionContainer form h4 {
       font-size: 1rem;
       font-weight: 500;
+      margin-top: 1rem;
       text-align: center; }
-      div#sectionContainer section h4:last-child {
+      div#sectionContainer form h4:last-child {
         margin-top: .5rem; }
-    div#sectionContainer section a {
-      text-decoration: none;
-      color: black; }
-      div#sectionContainer section a:hover {
-        font-weight: 600; }
-    div#sectionContainer section ul {
-      padding: .5rem;
-      background-color: black; }
-      div#sectionContainer section ul li {
+    div#sectionContainer form ul {
+      background-color: #ededed;
+      padding: .5rem; }
+      div#sectionContainer form ul li.errorsAndButton {
+        align-items: center;
         display: flex;
-        justify-content: space-between;
+        flex-flow: row nowrap;
+        justify-content: space-between; }
+        div#sectionContainer form ul li.errorsAndButton div {
+          max-width: 20vw; }
+      div#sectionContainer form ul li {
         align-items: flex-start;
+        display: flex;
         flex-flow: column nowrap;
+        justify-content: space-between;
         margin: 1rem 2rem;
         overflow: hidden; }
-        div#sectionContainer section ul li ul#notice {
+        div#sectionContainer form ul li ul#notice {
           color: red;
           font-size: 1.5rem; }
-        div#sectionContainer section ul li label {
+        div#sectionContainer form ul li label {
+          align-self: flex-start;
+          color: black;
           flex: 1 2 0;
-          padding: .5rem 1rem 0rem 0;
           font-size: 1rem;
           font-weight: 200;
-          align-self: flex-start;
-          color: white;
           letter-spacing: 1.5px;
-          opacity: 1;
+          opacity: 0;
+          padding: .5rem 1rem 0 0;
           transition: all .5s; }
-        div#sectionContainer section ul li input[type="text"],
-        div#sectionContainer section ul li input[type="password"] {
-          flex: 2 0 0;
-          width: 100%;
-          background-color: black;
-          font-size: 1.3rem;
-          padding: .4rem;
-          margin: .5rem 0;
-          border: none;
-          border-top: 2px solid white;
-          color: white; }
-        div#sectionContainer section ul li input[type="text"]:focus + label,
-        div#sectionContainer section ul li input[type="password"]:focus + label,
-        div#sectionContainer section ul li input[type="text"]:active + label,
-        div#sectionContainer section ul li input[type="password"]:active + label {
-          opacity: 1; }
-        div#sectionContainer section ul li a, div#sectionContainer section ul li p {
-          color: white;
-          padding: .5rem; }
-          div#sectionContainer section ul li a:hover, div#sectionContainer section ul li p:hover {
-            border-bottom: 2px solid white;
-            font-family: 200 !important; }
-        div#sectionContainer section ul li span {
-          color: white;
-          align-self: center;
-          font-size: 1.5rem;
-          padding-top: .5rem; }
-        div#sectionContainer section ul li button[type="submit"] {
-          flex: 1 0 0;
-          border: none;
-          align-self: flex-end;
-          margin: .5rem;
-          background-color: white;
+        div#sectionContainer form ul li input::placeholder {
           color: black;
+          letter-spacing: .7px; }
+        div#sectionContainer form ul li input[type='text'],
+        div#sectionContainer form ul li input[type='password'] {
+          background-color: #ededed;
+          border: 0;
+          border-bottom: 2px solid black;
+          color: black;
+          flex: 2 0 0;
+          font-size: 1.3rem;
+          margin: .5rem 0;
+          padding: .4rem;
+          width: 100%; }
+        div#sectionContainer form ul li input[type='text']:focus + label,
+        div#sectionContainer form ul li input[type='password']:focus + label,
+        div#sectionContainer form ul li input[type='text']:active + label,
+        div#sectionContainer form ul li input[type='password']:active + label {
+          opacity: 1; }
+        div#sectionContainer form ul li a {
+          border-bottom: 2px solid #ededed;
+          color: black;
+          margin-left: .5rem;
+          padding: .5rem 0;
+          padding-bottom: .35vh;
+          text-decoration: none; }
+          div#sectionContainer form ul li a:hover {
+            border-bottom: 2px solid black;
+            cursor: pointer;
+            font-family: 200;
+            padding-bottom: .35vh; }
+        div#sectionContainer form ul li p.error {
+          color: red; }
+        div#sectionContainer form ul li span {
+          align-self: center;
+          color: black;
+          font-size: 1.8rem;
+          padding-top: .5rem; }
+        div#sectionContainer form ul li button[type='submit'] {
+          background-color: white;
+          border: 1px solid black;
+          color: black;
+          flex: 1 0 0;
           font-size: 1.4rem;
-          font-weight: 200;
+          font-weight: 500;
           letter-spacing: .1rem;
-          padding: 1rem 3rem;
+          margin: .5rem;
+          max-width: 20vw;
+          min-width: 15vw;
+          padding: 2vh 2vw;
+          box-shadow: 5px 5px 5px;
           transition: background-color .5s, color .5s; }
-          div#sectionContainer section ul li button[type="submit"]:hover {
+          div#sectionContainer form ul li button[type='submit']:hover {
             background-color: red;
             color: black;
             cursor: pointer; }
-          div#sectionContainer section ul li button[type="submit"]:active {
+          div#sectionContainer form ul li button[type='submit']:active {
             background-color: #ff0a0a; }
+
+@media (max-width: 950px) {
+  div#sectionContainer {
+    display: block; }
+    div#sectionContainer section#signin,
+    div#sectionContainer section#signup {
+      display: block;
+      min-width: 100%; }
+    div#sectionContainer section#signin {
+      margin-right: 0;
+      margin-bottom: 25px; }
+    div#sectionContainer section#signup {
+      margin-left: 0;
+      margin-bottom: 150px; }
+    div#sectionContainer form {
+      display: block;
+      margin-left: 0;
+      margin-right: 0; }
+      div#sectionContainer form ul li span {
+        font-size: 1.2rem; }
+      div#sectionContainer form ul li label,
+      div#sectionContainer form ul li input[type='text'],
+      div#sectionContainer form ul li input[type='password'] {
+        font-size: 1rem; }
+      div#sectionContainer form ul li button[type='submit'] {
+        min-width: 95%;
+        font-size: 1rem; } }

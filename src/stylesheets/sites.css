@@ -1,311 +1,38 @@
-/* font imports */
 
-@font-face{
-	font-family: 'NeueHaasGrotesk';
-	src: url('../assets/fonts/NHaasGroteskDSPro-15UltTh.otf') format('opentype');
-	font-weight: 100;
-}
-
-@font-face{
-	font-family: 'NeueHaasGrotesk';
-	src: url('../assets/fonts/NHaasGroteskDSPro-25Th.otf') format('opentype');
-	font-weight: 200;
-}
-
-@font-face{
-	font-family: 'NeueHaasGrotesk';
-	src: url('../assets/fonts/NHaasGroteskTXPro-55Rg.ttf') format('truetype'),
-	     url('../assets/fonts/NHaasGroteskTXPro-55Rg.otf') format('opentype');
-	font-weight: 500;
-}
-
-@font-face{
-	font-family: 'NeueHaasGrotesk';
-	src: url('../assets/fonts/NHaasGroteskTXPro-65Md.ttf') format('truetype'),
-	     url('../assets/fonts/NHaasGroteskTXPro-65Md.otf') format('opentype');
-	font-weight: 600;
-}
-
-@font-face{
-	font-family: 'NeueHaasGrotesk';
-	src: url('../assets/fonts/NHaasGroteskTXPro-75Bd.ttf') format('truetype'),
-	     url('../assets/fonts/NHaasGroteskTXPro-75Bd.otf') format('opentype');
-	font-weight: 700;
-}
-
-/* css reset */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-input:focus,
-select:focus,
-button:focus {
-	outline: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
-/* global styling */
-
-html, body {
-	font-family: 'NeueHaasGrotesk', Courier;
-	font-weight: 500;
-	height: 100%;
-	/*background-color: yellow;*/
-}
-
-
-
-div.contains {
+div.containsSearchAndTrusts {
 	position: relative;
 	width: 100%;
 	display: flex;
-	flex-wrap: nowrap;
+	flex-flow: row nowrap;
 	justify-content: space-between;
 	overflow: hidden;
+	/*background-color: purple;*/
 }
 
-
-
-
-/* ---------------- tablet styling ----------------
+/* ---------------- tablet styling ---------------- */
 
 @media (min-width: 481px) and (max-width: 855px) {
 
-	body {
-		/* background-color: yellow;
-	}
-
-	header nav ul#settings li {
-		font-size: .9rem;
-	}
-
-	div.contains {
-		display: block;
+	div.containsSearchAndTrusts {
+		display: flex;
+		flex-flow: column nowrap;
 		padding: 0;
 		overflow: visible;
 		height: auto;
-	}
-
-	form.search {
-		display: block;
-		margin: 0 2rem 1rem;
-		padding: 1rem;
-		height: auto;
-	}
-
-	form.search ul {
-		width: 100%;
-	}
-
-	form.search ul li input {
-		width: 65%;
-	}
-
-	form.search ul li input + label {
-		width: 30%;
-		font-size: 1.2rem;
-	}
-
-	section.trusts {
-		margin: 1rem 2rem;
-		height: auto;
-		overflow: auto;
-	}
-
-	section.trusts h2 {
-		display: block;
-	}
-
-	section.trusts ul {
-		list-style: none;
-		column-count: 2;
-		column-gap: 1rem;
-	}
-
-	section.trusts ul li, section.trusts ul li:before {
-		font-size: 1.2rem;
-	}
-
-	section.results {
-		display: block;
-		clear: both;
-		overflow: auto;
-	}
-
-	section.results table thead tr th,
-	section.results table tbody tr td {
-		font-size: 1rem;
-	}
-
-	section.results table tbody tr:hover td {
-		font-weight: 200;
-		letter-spacing: .07rem;
-		color: white;
-	}
-
-	section.results table thead tr th:nth-child(6),
-	section.results table thead tr th:nth-child(7),
-	section.results table thead tr th:nth-child(8),
-	section.results table tbody tr td:nth-child(6),
-	section.results table tbody tr td:nth-child(7),
-	section.results table tbody tr td:nth-child(8) {
-		display: none;
+		/*border: 5px solid teal;*/
 	}
 
 }
 
 /* ---------------- mobile styling ---------------- */
-/*
+
 @media (max-width: 480px) {
 
-	header nav {
-		margin: 0 auto;
-		padding: .8rem 1rem .5rem;
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	header nav div#logo {
-		flex: 2 0 40%;
-	}
-
-	header nav h3 {
-		font-size: 1.5rem;
-		margin-top: -.1rem;
-	}
-
-	header nav ul#settings {
-		flex: 1 0 25%;
-		height: 90px;
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: space-between;
-	}
-
-	header nav ul li {
-		font-size: .8rem;
-	}
-
-	div.contains {
+	div.containsSearchAndTrusts {
 		display: inline;
 		overflow: visible;
 		height: auto;
 	}
 
-	form.search {
-		display: flex;
-		margin: .1rem 1rem;
-		padding: .2rem 1rem;
-		height: auto;
-	}
-
-	form.search span {
-		display: none;
-	}
-
-	form.search ul {
-		width: 100%;
-	}
-
-	form.search ul li input {
-		flex: 2 0 10rem;
-		padding: .2rem;
-		font-size: 1rem;
-	}
-
-	form.search ul li label {
-		flex: 1 0 5rem;
-		font-size: 1.2rem;
-	}
-
-	section.trusts {
-		display: block;
-		margin: 1rem 1rem;
-	}
-
-	section.trusts ul li,
-	section.trusts ul li:before {
-		font-size: 1rem;
-	}
-
-	section.results {
-		margin: 1rem 1rem;
-	}
-
-	section.results table thead tr th,
-	section.results table tbody tr td {
-		font-size: .7rem;
-		font-weight: 600;
-		padding: .4rem .1rem;
-	}
-
-	section.results table tbody tr:hover td {
-		font-weight: 200;
-		letter-spacing: .04rem;
-		color: black;
-	}
-
-	section.results table thead tr th:nth-child(6),
-	section.results table thead tr th:nth-child(7),
-	section.results table thead tr th:nth-child(8),
-	section.results table tbody tr td:nth-child(6),
-	section.results table tbody tr td:nth-child(7),
-	section.results table tbody tr td:nth-child(8) {
-		display: none;
-	}
-
-	footer {
-		margin-top: 2rem;
-	}
-
 }
-*/
+

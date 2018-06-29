@@ -9,8 +9,6 @@ class SitesTableHeader extends Component {
                 <th onClick={() => this.props.sortBy('city')}><a>City</a></th>
                 <th onClick={() => this.props.sortBy('state')}><a>State</a></th>
                 <th onClick={() => this.props.sortBy('country')}><a>Country</a></th>
-                <th>Start Date</th>
-                <th>End Date</th>
                 <th>Actions</th>
               </tr>
             </thead>

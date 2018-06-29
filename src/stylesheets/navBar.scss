@@ -1,143 +1,213 @@
-header nav {
-  margin: 0 auto;
-  padding: 1rem 2rem;
+nav {
   display: flex;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
-  align-items: center;
-}
+  min-height: 100px;
+  min-width: min-content;
+  margin-top: 2px;
+  // display: none;
 
-header nav div#logo {
-  flex: 2 0 40%;
-}
+  a {
+    color: black;
+    text-decoration: none;
 
-header nav h3 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-top: -.1rem;
-  transition: all .5s;
-}
+  }
 
-header nav div#logo:hover h3 {
-  // color: #444;
-  // text-shadow:
-  //   1px 0px 1px #ccc, 0px 1px 1px #eee,
-  //   2px 1px 1px #ccc, 1px 2px 1px #eee,
-  //   3px 2px 1px #ccc, 2px 3px 1px #eee,
-  //   4px 3px 1px #ccc, 3px 4px 1px #eee,
-  //   5px 4px 1px #ccc;
-}
+  a#logo,
+  div#menu {
+    // border: 2px solid navy;
+    margin: 5px 0px;
+    min-height: 90px;
+  }
 
-.lists {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  height: 100px;
-  // border: 1px solid yellow;
-
-  .lowerList, .upperList {
-    list-style-type: none;
+  a#logo {
+    // background-color: yellow;
     display: flex;
-    flex: row nowrap;
-    justify-content: flex-end;
-    // border: 1px solid green;
+    flex-flow: column nowrap;
+    justify-content: space-between;
 
-    li {
-      padding: 3px 45px 3px 0;
+    h3 {
+      font-size: 30px;
+      font-weight: 700;
+    }
+  }
+
+  div#menu {
+    // background-color: teal;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    div#lists {
+      // background-color: orange;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+
+      ul#upperList {
+        // background-color: teal;
+        li {
+          align-items: flex-end;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+          margin-right: 25px;
+
+          span {
+            display: block;
+            font-size: 15px;
+            margin-bottom: 3px;
+          }
+
+          a {
+            font-size: 15px;
+
+          }
+        }
+      }
+
+      ul#lowerList {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+
+        li a {
+          // background-color: aqua;
+          font-size: 18px;
+          margin-right: 25px;
+        }
+      }
+
+      ul#lowerList a:hover,
+      ul#upperList a:hover {
+        border-bottom: 2px solid black;
+        cursor: pointer;
+      }
     }
 
-    a {
-      text-decoration: none;
-      color: black;
+    a#redBox {
+      background-color: red;
 
-      &:hover {
-        border-bottom: 2px solid black;
+      ul {
+        // background-color: pink;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+        min-height: 90px;
+        min-width: 90px;
+      }
+
+      li {
+        // background-color: beige;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+
+        div.cross {
+          align-self: flex-end;
+          margin: 5px;
+        }
+
+        span {
+          align-self: center;
+          color: white;
+          margin-top: -10px;
+          margin-bottom: 10px;
+        }
       }
     }
   }
 
-  .upperList a {
-    font-weight: 500;
+  div.cross {
+    height: 30px;
+    position: relative;
+    width: 30px;
+    z-index: 5;
   }
 
-  .lowerList a {
-    font-weight: 600;
+  div.cross:before, div.cross:after {
+    background-color: white;
+    content: '';
+    position: absolute;
+    transition: background-color .7s;
+    z-index: 5;
   }
+
+  div.cross:before {
+    height: 100%;
+    left: 50%;
+    margin-left: -15%;
+    width: 30%;
+  }
+
+  div.cross:after {
+    height: 30%;
+    margin-top: -15%;
+    top: 50%;
+    width: 100%;
+  }
+
 }
 
-.cross {
-   width: 20px;
-   height: 20px;
-   position: relative;
-   z-index: 5;
-}
+@media (max-width: 550px) {
+  header nav div#menu {
+    // background-color: green;
 
-.cross:before, .cross:after {
-  content: "";
-  position: absolute;
-  z-index: 5;
-  background-color: white;
-  transition: background-color .7s;
-}
+  div#lists {
 
-.cross:before {
-  left: 50%;
-  width: 30%;
-  margin-left: -15%;
-  height: 100%;
-}
+      ul#upperList li {
+        display: none;
+        margin-left: 0;
 
-.cross:after {
-  top: 50%;
-  height: 30%;
-  margin-top: -15%;
-  width: 100%;
-}
+        a {
+          // font-size: 10px;
+          // margin-right: 10px;
+          }
 
-header nav ul#redBox {
-  flex: 1 0 10%;
-  display: flex;
-  justify-content: space-between;
-  flex-flow: column nowrap;
-  border: 2px solid red;
-  background-color: red;
-  height: 100px;
-  max-width: 12vw;
-  transition: all .7s;
-}
+        }
 
-header nav ul#redBox li {
-  display: flex;
-  justify-content: flex-end;
-  padding: .5rem;
-  transition: all .7s;
-}
+      ul#lowerList {
+        align-items: flex-end;
+        // background-color: teal;
+        flex-flow: column nowrap;
+        height: 100%;
+        justify-content: space-around;
 
-header nav ul#redBox li a {
-  text-decoration: none;
-  align-self: center;
-  color: white;
-  font-weight: 500;
-  letter-spacing: .03rem;
-  text-align: right;
-  transition: all .7s;
-}
+        li a {
+          // background-color: aqua;
+          font-size: 12px;
+          margin-right: 10px;
+        }
+      }
+    }
 
-header nav ul#redBox:hover {
-  background-color: white;
-}
+    a#redBox {
+      background-color: red;
 
-header nav ul#redBox:hover a  {
-  color: red;
-}
+      ul {
+        // background-color: pink;
+        align-items: center;
+        justify-content: center;
+        min-width: 70px;
+      }
 
-header nav ul#redBox:hover div.cross:before,
-header nav ul#redBox:hover div.cross:after  {
-  background-color: red;
-}
+      li {
+        // background-color: purple;
+        align-self: center;
 
-header nav ul#redBox:active {
-  background-color: darken(red, 7%);
-  border: 2px solid darken(red, 7%);
+        div.cross {
+          display: none;
+        }
+
+        span {
+          color: white;
+          font-size: 13px;
+          margin-top: 0px;
+          margin-bottom: -5px;
+          padding: 5px;
+          text-align: center;
+        }
+      }
+    }
+  }
 }

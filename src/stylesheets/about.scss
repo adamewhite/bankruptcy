@@ -1,0 +1,26 @@
+section#aboutDescription {
+  display: block;
+  margin: 2vh 14vw;
+  // overflow: scroll !important;
+  height: 100%;
+
+  p {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section#aboutDescription {
+    display: block;
+    margin: .5vh 3vw;
+    height: 100%;
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.4rem;
+      padding: 1vh;
+    }
+  }
+}

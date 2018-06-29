@@ -1,10 +1,11 @@
 section.results {
   border-top: 2px solid black;
-  margin: 2rem 2rem; }
+  margin: 2vh 0; }
 
 section.results div.results_banner {
   display: flex;
-  justify-content: align-left;
+  justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid black; }
 
 section.results div.results_banner p {
@@ -101,7 +102,7 @@ section.results table tbody tr td select {
   border: 1px solid black;
   height: 2rem;
   font-size: 1rem;
-  font-weight: 200;
+  font-weight: 500;
   padding: .2rem;
   text-overflow: ellipsis;
   background-color: white;
@@ -114,49 +115,61 @@ section.results table tbody tr td select {
   border-radius: 0px;
   width: 100%; }
 
-section.results ul.pagination {
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  list-style-type: none;
-  width: auto;
-  margin: 1.5rem auto 8rem; }
+section.results table tbody tr td select.grayedOut {
+  background-color: #BFBFBF; }
 
-section.results ul.pagination li {
-  flex: 1 1 auto;
-  display: inline;
-  /*margin: .2rem 0;*/
-  /*max-width: 1rem;*/ }
-
-section.results ul.pagination li a {
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  border: 1px solid black;
-  height: 2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  padding: .3rem 1rem;
-  color: black;
-  background-color: white;
-  /*width: 7rem;*/ }
-
-section.results ul.pagination li a:hover {
-  background-color: black;
-  color: white;
+section.results table tbody tr td select.pointable {
   cursor: pointer; }
 
-/*
-section.results ul.pagination li.active {
-  background-color: yellow;
-  color: white;
-}*/
-section.results ul.pagination li.disabled {
-  /*background-color: red;*/
-  pointer-events: none;
-  color: red; }
+/* ---------------- tablet styling ---------------- */
+@media (min-width: 481px) and (max-width: 855px) {
+  section.results {
+    display: block;
+    height: 100%; }
+  section.results div.results_banner p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem 1rem;
+    text-align: center; }
+  section.results table thead tr th,
+  section.results table tbody tr td {
+    font-size: 1rem; }
+  section.results table tbody tr:hover td {
+    font-weight: 200;
+    letter-spacing: .07rem;
+    color: white; }
+  section.results table thead tr th:nth-child(6),
+  section.results table thead tr th:nth-child(7),
+  section.results table thead tr th:nth-child(8),
+  section.results table tbody tr td:nth-child(6),
+  section.results table tbody tr td:nth-child(7),
+  section.results table tbody tr td:nth-child(8) {
+    display: none; } }
 
-section.results ul.pagination li.disabled a {
-  color: red; }
+/* ---------------- mobile styling ---------------- */
+@media (max-width: 480px) {
+  section.results {
+    margin: 1rem 1rem; }
+  section.results div.results_banner p {
+    font-size: .9rem;
+    font-weight: 600;
+    padding: 1rem 1rem;
+    text-align: center; }
+  section.results table thead tr th,
+  section.results table tbody tr td {
+    font-size: .7rem;
+    font-weight: 600;
+    padding: .4rem .1rem; }
+  section.results table tbody tr:hover td {
+    font-weight: 200;
+    letter-spacing: .04rem;
+    color: white; }
+  section.results table thead tr th:nth-child(6),
+  section.results table thead tr th:nth-child(7),
+  section.results table thead tr th:nth-child(8),
+  section.results table tbody tr td:nth-child(6),
+  section.results table tbody tr td:nth-child(7),
+  section.results table tbody tr td:nth-child(8) {
+    display: none; }
+  footer {
+    margin-top: 2rem; } }

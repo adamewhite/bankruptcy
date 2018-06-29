@@ -34,7 +34,7 @@ class SitesTableRowForm extends Component {
 	        	 <td>
 	              <TrustSelector
 	            		name="trust"
-	            		classes=""
+	            		classes="grayedOut"
 	            		site_id={this.props.site._id}
 	            		trust_id={this.props.site.trust_id}
 	            		allTrusts={this.props.allTrusts}
@@ -61,7 +61,7 @@ class SitesTableRowForm extends Component {
 	            </td>
 	            <td>
 	            	<StateSelector
-	            		classes=""
+	            		classes="pointable"
 	            		name="state"
                   data={this.props.site.state}
                   handleChange={this.handleChange}
@@ -69,29 +69,11 @@ class SitesTableRowForm extends Component {
 	            </td>
 	            <td>
 	            	<CountrySelector
-	            		classes=""
+	            		classes="pointable"
 	            		name="country"
                   data={this.props.site.country}
                   handleChange={this.handleChange}
 	            	/>
-	            </td>
-	            <td>
-	             	<input
-		             	type="text"
-		             	className=""
-		             	name="start_date"
-		              value={this.props.site.start_date}
-		              onChange={this.handleChange}
-	              />
-	            </td>
-	            <td>
-              	<input
-	               	type="text"
-	               	className=""
-	                name="end_date"
-	                value={this.props.site.end_date}
-	                onChange={this.handleChange}
-                />
 	            </td>
 	            <td>
 		            <a onClick={this.handleSiteUpdate}><i className="fa fa-check"></i></a>

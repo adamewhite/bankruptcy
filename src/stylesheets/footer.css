@@ -2,4 +2,5 @@ footer {
   margin: 3rem 2rem;
   border-top: 2px solid black;
   padding: 2rem 0 8rem;
-  text-align: right; }
+  text-align: right;
+  color: darkgray; }

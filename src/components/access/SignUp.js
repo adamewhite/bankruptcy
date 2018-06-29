@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { auth } from '../../firebase';
 
 import * as routes from '../../constants/routes';
 
-const SignUpPage = ({ history }) =>
-  <SignUpForm history={history}/>
+class SignUpPage extends Component {
+  render() {
+    return (<SignUpForm history={this.props.history} updateAuthUser={this.props.updateAuthUser} />)
+  }
+ }
 
 
 const INITIAL_STATE = {
@@ -16,24 +19,37 @@ const INITIAL_STATE = {
   error: null,
 };
 
-
-const byPropKey = (propertyName, value) => () => ({
-  [propertyName]: value,
-});
-
-
 class SignUpForm extends Component {
   constructor(props) {
     super(props);
+
     this.state = {...INITIAL_STATE};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onSubmit = (event) => {
+  handleChange(e) {
+    e.preventDefault();
+
+    let node = document.getElementsByName(`${e.target.name}`)[0];
+    let targetedLabel = document.getElementById(`${e.target.name}SignUpLabel`);
+
+    if (node.value !== '') {
+      targetedLabel.style.opacity = 1;
+    } else {
+      targetedLabel.style.opacity = 0;
+    }
+
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handleSubmit(event) {
     event.preventDefault();
     const {
       username,
       email,
-      passwordOne,
+      passwordOne
     } = this.state;
 
     const {
@@ -43,10 +59,11 @@ class SignUpForm extends Component {
     auth.doCreateUserWithEmailAndPassword(email, passwordOne)
       .then(authUser => {
         this.setState(() => ({ ...INITIAL_STATE }));
-        history.push(routes.HOME);
+        this.props.updateAuthUser(authUser);
+        history.push('/search');
       })
       .catch(error => {
-        this.setState(byPropKey('error', error));
+        this.setState({error: error});
       });
   }
 
@@ -66,69 +83,65 @@ class SignUpForm extends Component {
       username === '';
 
     return (
-      <form onSubmit={this.onSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <ul>
         <li>
           <span>Need to create an account?</span>
         </li>
         <li>
-          <label for="name">Name</label>
+          <label htmlFor="username" id="usernameSignUpLabel">Full Name</label>
           <input
             value={username}
-            onChange={event => this.setState(byPropKey('username', event.target.value))}
+            onChange={this.handleChange}
             type="text"
-            placeholder="Full Name"
+            name="username"
+            placeholder="Enter Your Full Name"
           />
           </li>
           <li>
-          <label for="email">Email</label>
+          <label htmlFor="email" id="emailSignUpLabel">Email Address</label>
           <input
             value={email}
-            onChange={event => this.setState(byPropKey('email', event.target.value))}
+            onChange={this.handleChange}
             type="text"
-            placeholder="Email Address"
+            name="email"
+            placeholder="Enter Your Email Address"
           />
           </li>
           <li>
-          <label for="passwordOne">Password</label>
+          <label htmlFor="passwordOne" id="passwordOneSignUpLabel">Password</label>
           <input
             value={passwordOne}
-            onChange={event => this.setState(byPropKey('passwordOne', event.target.value))}
+            onChange={this.handleChange}
             type="password"
-            placeholder="Password"
+            name="passwordOne"
+            placeholder="Enter Your Password"
           />
           </li>
           <li>
-          <label for="passwordTwo">Confirm Password</label>
+          <label htmlFor="passwordTwo" id="passwordTwoSignUpLabel">Confirm Password</label>
           <input
             value={passwordTwo}
-            onChange={event => this.setState(byPropKey('passwordTwo', event.target.value))}
+            onChange={this.handleChange}
             type="password"
-            placeholder="Confirm Password"
+            name="passwordTwo"
+            placeholder="Confirm Your Password"
           />
           </li>
-          <li>
-          <button disabled={isInvalid} type="submit">
-            Sign Up
-          </button>
+          <li className="errorsAndButton">
+            <div>{ error && <p className="error">{error.message}</p> }</div>
+            <button disabled={isInvalid} type="submit">
+              Sign Up
+            </button>
           </li>
         </ul>
-        { error && <p>{error.message}</p> }
       </form>
     );
   }
 }
 
-const SignUpLink = () =>
-  <p>
-    Don't have an account?
-    {' '}
-    <Link to={routes.SIGN_UP}>Sign Up</Link>
-  </p>
-
 export default withRouter(SignUpPage);
 
 export {
-  SignUpForm,
-  SignUpLink,
+  SignUpForm
 };

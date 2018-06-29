@@ -14,6 +14,7 @@ class TrustSelector extends Component {
 
 	    return 	<select
 	    					className={this.props.classes}
+	    					disabled="true"
 	    					name="trust_list"
 	    					value={this.props.trust_id}
 	    					onChange={this.handleChange}>

@@ -6,21 +6,52 @@ section.trusts {
   flex: 1 0 0;
   margin: 0;
   padding: 1rem 0 0;
-  margin: 0 2rem 0 .5rem;
+  margin-left: 1vw;
   border-top: 2px solid black;
   overflow-y: scroll;
-  height: 100vh;
+  height: 100%;
+
+  div#trustHeader {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
 }
 
 section.trusts h2 {
   font-size: 1.5rem;
   font-weight: 700;
   padding-bottom: 1rem;
-  border-bottom: 1px solid black;
   padding-left: .3rem;
 }
 
-section.trusts h3 {
+section.trusts h2#copy-button {
+  width: 235px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
+  margin-right: 10px;
+  margin-bottom: 1rem;
+  padding: 5px 8px;
+  border: 1px solid black;
+  // background-color: #ededed;
+  box-shadow: 5px 5px 5px;
+  transition: background-color .5s;
+}
+
+section.trusts h2#copy-button:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+section.trusts h2#copy-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 3px;
+}
+
+section.trusts h3  {
   font-size: 1.3rem;
   font-weight: 600;
   padding: .5rem 0;
@@ -28,8 +59,22 @@ section.trusts h3 {
   padding-left: .3rem;
 }
 
+section.trusts h3.eligibleTrusts:hover {
+  background-color: red;
+  color: white;
+  font-weight: 500;
+  letter-spacing: .3px;
+}
+
 .displaynone {
   display: none;
+}
+
+section.trusts div#loadingDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 section.trusts ul {
@@ -60,7 +105,7 @@ section.trusts ul li::before {
   color: red;
 }
 
-section.trusts ul li::after {
+section.trusts ul li.eligibleTrust::after {
   content: '';
   position: absolute;
   background-color: red;
@@ -71,38 +116,89 @@ section.trusts ul li::after {
   height: 105%;
 }
 
-section.trusts ul li:hover::after,
+section.trusts ul li.eligibleTrust:hover::after,
 section.trusts h3.eligibleTrusts:hover::after {
   width: calc(100% + 2.2rem);
 }
 
-section.trusts ul li:hover {
+section.trusts ul li.eligibleTrust:hover {
   color: white;
   font-weight: 200;
   letter-spacing: .11em;
   cursor: pointer;
 }
 
-section.trusts ul li:hover::before {
+section.trusts ul li.eligibleTrust:hover::before {
   color: white;
   font-weight: 100;
 }
 
-section.trusts ul li.faded span {
-  opacity: .6;
+// section.trusts ul li.faded span {
+//   opacity: .6;
+// }
+
+// section.trusts ul li.faded:hover {
+//   color: teal;
+//   font-weight: 500;
+//   letter-spacing: .02rem;
+//   cursor: auto;
+// }
+
+// section.trusts ul li.faded:hover::after {
+//   width: 0;
+// }
+
+// section.trusts ul li.faded:hover::before {
+//   color: red;
+// }
+
+/* ---------------- tablet styling ---------------- */
+
+@media (min-width: 481px) and (max-width: 855px) {
+
+  section.trusts {
+    // margin: 1rem 2rem;
+    margin-left: 0;
+    height: auto;
+    display: block;
+    // overflow: scroll;
+  }
+
+  section.trusts h2 {
+    display: block;
+  }
+
+  section.trusts ul {
+    list-style: none;
+    column-count: 2;
+    column-gap: 1rem;
+  }
+
+  section.trusts ul li, section.trusts ul li:before {
+    font-size: 1.2rem;
+  }
+
 }
 
-section.trusts ul li.faded:hover {
-  color: black;
-  font-weight: 500;
-  letter-spacing: .02rem;
-  cursor: auto;
+/* ---------------- mobile styling ---------------- */
+
+@media (max-width: 480px) {
+
+
+  section.trusts {
+    display: block;
+    margin: 1rem 1rem;
+  }
+
+  section.trusts ul li,
+  section.trusts ul li:before {
+    font-size: 1.1rem;
+  }
+
+  section.trusts h2#copy-button {
+    font-size: 1.1rem;
+    padding: 5px;
+  }
+
 }
 
-section.trusts ul li.faded:hover::after {
-  width: 0;
-}
-
-section.trusts ul li.faded:hover::before {
-  color: red;
-}

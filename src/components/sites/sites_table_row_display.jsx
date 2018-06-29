@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import dateFormat from 'dateformat';
 
 class SitesTableRowDisplay extends Component {
 	constructor (props) {
@@ -29,12 +28,6 @@ class SitesTableRowDisplay extends Component {
     return trustName;
 	}
 
-  formatDate (dateStr) {
-    var date = new Date(dateStr);
-
-    return dateFormat(date, "mmm d, yyyy");
-  }
-
 	// render
 
     render () {
@@ -45,8 +38,6 @@ class SitesTableRowDisplay extends Component {
 	             	<td>{this.props.toTitleCase(this.props.site.city)}</td>
 	             	<td>{this.props.site.state}</td>
 	             	<td>{this.props.toTitleCase(this.props.site.country)}</td>
-              	<td>{this.formatDate(this.props.site.start_date)}</td>
-              	<td>{this.formatDate(this.props.site.end_date)}</td>
               	<td>
 	                <a onClick={this.props.toggleEdit}><i className="fa fa-pencil"></i></a>
 	                <a><i onClick={this.handleSiteDelete} className="fa fa-trash"></i></a>
