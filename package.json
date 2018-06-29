@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://www.adamewhite.com/bankruptcy",
+  "main": "server.js",
   "dependencies": {
     "animated": "^0.2.2",
     "axios": "^0.18.0",
