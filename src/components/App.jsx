@@ -11,7 +11,7 @@ import LandingPage from './access/Landing';
 import PasswordForgetForm from './access/PasswordForget';
 import About from './about/About';
 import Contact from './contact/Contact';
-import Navbar from './navigation/Navbar';
+// import Navbar from './navigation/Navbar';
 import Footer from './footer/Footer';
 import Search from './Search';
 import '../index.css';
@@ -33,7 +33,7 @@ const PageFade = (props) =>
 
 const Layout = ({ children }) => (
   <section>
-		<Navbar />
+		{/*<Navbar />*/}
     {children}
   </section>
 );

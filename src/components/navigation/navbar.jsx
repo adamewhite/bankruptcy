@@ -4,7 +4,7 @@ import '../../stylesheets/navBar.css';
 import * as routes from '../../constants/routes';
 import { auth } from '../../firebase';
 
-class Navbar extends Component {
+class NavbarComponent extends Component {
   constructor(props) {
     super(props);
     this.handleSignOut = this.handleSignOut.bind(this);
@@ -92,16 +92,14 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+class Navbar extends Component {
+  render() {
+    return (<div>
+              <NavbarComponent history={this.props.history} />
+            </div>
+          )
+  }
+}
 
-// class Navbar extends Component {
-//   render() {
-//     return (<div>
-//               <NavbarComponent history={this.props.history} />
-//             </div>
-//           )
-//   }
-// }
-
-// export default withRouter(Navbar);
+export default withRouter(Navbar);
 
