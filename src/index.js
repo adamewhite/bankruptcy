@@ -7,7 +7,7 @@ import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 
 const Main = () => (
-  <BrowserRouter basename={'/bankruptcy'}>
+  <BrowserRouter>
     <Route path="/" component={App} />
   </BrowserRouter>
 );
