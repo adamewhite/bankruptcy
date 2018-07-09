@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://www.adamewhite.com/bankruptcy",
-  "main": "server.js",
   "dependencies": {
     "animated": "^0.2.2",
     "axios": "^0.18.0",
+    "babel-cli": "^6.26.0",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "dateformat": "^3.0.3",
@@ -35,7 +35,6 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.19.0",

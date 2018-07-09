@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import '../stylesheets/sites.css';
 
-// import Navbar from './navigation/navbar';
+import Navbar from './navigation/navbar';
 import SearchPanel from './search/search_panel';
 import SitesPanel from './sites/sites_panel';
 import TrustPanel from './trusts/trust_panel';
@@ -207,7 +207,9 @@ class Search extends Component {
   // render
 
     render () {
-      return	<div className="contains">
+      return	<div>
+      					<Navbar />
+      				<div className="contains">
                 <div className="containsSearchAndTrusts">
                   <SearchPanel
                     searchObj={this.state.searchObj}
@@ -241,6 +243,7 @@ class Search extends Component {
                     onChangePage={this.handlePaginate}
                   />
               </div>
+            </div>
             </div>
   }
 }

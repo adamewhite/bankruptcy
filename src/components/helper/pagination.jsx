@@ -88,3 +88,32 @@ class Pagination extends Component {
 
 
 export default Pagination;
+
+
+{/*<li className={this.props.currentPage === 1 ? 'disabled' : ''}>
+ <a onClick={() => this.setPage(1)}>
+   <i className="fa fa-arrow-left"></i>
+   <i className="fa fa-arrow-left"></i>
+ </a>
+</li>
+
+<li className={this.props.currentPage === 1 ? 'disabled' : ''}>
+ <a onClick={() => this.setPage(this.props.currentPage - 1)}>
+   <i className="fa fa-arrow-left"></i>
+ </a>
+</li>
+
+{this.createNumberedLinks()}
+
+<li className={this.props.currentPage === Math.ceil(this.props.narrowedSiteCount / this.props.pageSize) ? 'disabled' : ''}>
+ <a onClick={() => this.setPage(this.props.currentPage + 1)}>
+   <i className="fa fa-arrow-right"></i>
+ </a>
+</li>
+
+<li className={this.props.currentPage === Math.ceil(this.props.narrowedSiteCount / this.props.pageSize) ? 'disabled' : ''}>
+ <a onClick={() => this.setPage(Math.ceil(this.props.narrowedSiteCount / this.props.pageSize))}>
+   <i className="fa fa-arrow-right"></i>
+   <i className="fa fa-arrow-right"></i>
+ </a>
+</li>*/}

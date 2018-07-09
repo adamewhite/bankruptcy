@@ -7,7 +7,9 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 import sitesRoutes from './src/routes/sitesRoutes';
 import trustsRoutes from './src/routes/trustsRoutes';
-import App from './src/components/App';
+
+// console.log("trustsRoutes", trustsRoutes);
+// var App = require('./src/components/App');
 
 
 //and create our instances
@@ -18,7 +20,7 @@ var router = express.Router();
 var port = process.env.API_PORT || 3001;
 
 //db config
-var mongoDB = 'mongodb://adam_white:asby@ds161026.mlab.com:61026/asbestos_trust_db';
+var mongoDB = 'mongodb://awhite:asby1!@ds161026.mlab.com:61026/asbestos_trust_db';
 mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -34,9 +36,15 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
+
   //and remove cacheing so we get the most recent comments
   res.setHeader('Cache-Control', 'no-cache');
   next();
+});
+
+//now  we can set the route path & initialize the API
+router.get('/', function(req, res) {
+  res.json({ message: 'API Initialized!'});
 });
 
 app.use('/api', router);
@@ -44,16 +52,17 @@ app.use('/api', router);
 sitesRoutes(router);
 trustsRoutes(router);
 
-app.get('*', (req, res) => {
-    // const innerContent = renderToString(<App pathname={req.url} />);
+// app.get('*', (req, res) => {
+//     // const innerContent = renderToString(<App pathname={req.url} />);
 
-    // const html = renderToStaticMarkup(<Html innerContent={innerContent} />);
+//     // const html = renderToStaticMarkup(<Html innerContent={innerContent} />);
 
-    res.send(App);
-});
+//     res.send(App);
+// });
 
 
 //starts the server and listens for requests
 app.listen(port, function() {
   console.log(`api running on port ${port}`);
+  console.log("HEY HEY HEY HEY HEY");
 });

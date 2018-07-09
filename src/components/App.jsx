@@ -5,7 +5,7 @@ import {
   Switch,
 } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import 'font-awesome/css/font-awesome.min.css';
+// import 'font-awesome/css/font-awesome.min.css';
 import { firebase } from '../firebase';
 import LandingPage from './access/Landing';
 import PasswordForgetForm from './access/PasswordForget';
@@ -33,7 +33,6 @@ const PageFade = (props) =>
 
 const Layout = ({ children }) => (
   <section>
-		<Navbar />
     {children}
   </section>
 );

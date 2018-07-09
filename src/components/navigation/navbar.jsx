@@ -7,6 +7,7 @@ import { auth } from '../../firebase';
 class NavbarComponent extends Component {
   constructor(props) {
     super(props);
+    this.runOnScroll = this.runOnScroll.bind(this);
     this.handleSignOut = this.handleSignOut.bind(this);
   }
 
@@ -19,6 +20,17 @@ class NavbarComponent extends Component {
     auth.doSignOut();
 
   }
+
+  runOnScroll() {
+      var element = document.getElementsByTagName('header')  ;
+      if(document.body.scrollTop >= 50) {
+          element[0].classList.add('shrink')
+      } else {
+          element[0].classList.remove('shrink')
+      }
+      // console.log(topMenu[0].classList)
+
+  };
 
   render() {
     return (
