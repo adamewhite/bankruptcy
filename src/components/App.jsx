@@ -95,8 +95,8 @@ class App extends Component {
                 <Route exact path={routes.SEARCH} render={() => (
                           this.state.authUser
                               ? <Search
-                                  trustsUrl='http://localhost:3001/api/trusts'
-                                  sitesUrl='http://localhost:3001/api/sites'
+                                  trustsUrl={`${this.props.location.pathname}/api/trusts`}
+                                  sitesUrl={`${this.props.location.pathname}/api/sites`}
                                 />
                               : <Redirect to={{
                                   pathname: '/'
