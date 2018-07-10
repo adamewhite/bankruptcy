@@ -95,8 +95,8 @@ class App extends Component {
                 <Route exact path={routes.SEARCH} render={() => (
                           this.state.authUser
                               ? <Search
-                                  trustsUrl={`${this.props.location.pathname}/api/trusts`}
-                                  sitesUrl={`${this.props.location.pathname}/api/sites`}
+                                  trustsUrl="bankruptcy.herokuapp.com/api/trusts"
+                                  sitesUrl="bankruptcy.herokuapp.com/api/sites"
                                 />
                               : <Redirect to={{
                                   pathname: '/'

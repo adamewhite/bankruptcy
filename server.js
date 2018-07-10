@@ -43,23 +43,22 @@ app.use(function(req, res, next) {
 });
 
 //now  we can set the route path & initialize the API
-router.get('/', function(req, res) {
-  res.json({ message: 'API Initialized!'});
-});
+// router.get('/', function(req, res) {
+//   res.json({ message: 'API Initialized!'});
+// });
+
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('client/build'));
+// }
+
+// app.get('*',(req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+// });
 
 app.use('/api', router);
 
 sitesRoutes(router);
 trustsRoutes(router);
-
-// app.get('*', (req, res) => {
-//     // const innerContent = renderToString(<App pathname={req.url} />);
-
-//     // const html = renderToStaticMarkup(<Html innerContent={innerContent} />);
-
-//     res.send(App);
-// });
-
 
 //starts the server and listens for requests
 app.listen(port, function() {
