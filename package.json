@@ -2,6 +2,7 @@
   "name": "bankruptcy_trust_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bankruptcy.herokuapp.com/",
   "dependencies": {
     "animated": "^0.2.2",
     "axios": "^0.18.0",
