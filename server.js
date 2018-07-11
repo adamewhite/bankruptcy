@@ -43,9 +43,9 @@ app.use(function(req, res, next) {
 });
 
 //now  we can set the route path & initialize the API
-// router.get('/', function(req, res) {
-//   res.json({ message: 'API Initialized!'});
-// });
+router.get('/', function(req, res) {
+  res.json({ message: 'API Initialized!'});
+});
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('client/build'));
