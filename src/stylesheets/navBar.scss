@@ -8,7 +8,7 @@ nav {
   justify-content: space-between;
   min-height: 100px;
   min-width: min-content;
-  margin-top: 2px;
+  margin: 2px -10px 0px -10px;
   // display: none;
 
   a {
@@ -20,7 +20,7 @@ nav {
   a#logo,
   div#menu {
     // border: 2px solid navy;
-    margin: 0px;
+    margin: 5px 0px;
     min-height: 90px;
   }
 

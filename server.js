@@ -4,6 +4,7 @@
 //first we import our dependencies...
 var express = require('express');
 var mongoose = require('mongoose');
+var path = require('path');
 var bodyParser = require('body-parser');
 import sitesRoutes from './src/routes/sitesRoutes';
 import trustsRoutes from './src/routes/trustsRoutes';
@@ -47,9 +48,15 @@ router.get('/', function(req, res) {
   res.json({ message: 'API Initialized!'});
 });
 
+// if (process.env.NODE_ENV === 'production') {
+// 	app.use(express.static('client/build'));
+// }
+
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
-}
+      app.get(/^\/(?!api).*/, (req, res) => { // don't serve react app to api routes
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+      });
+};
 
 // app.get('*',(req, res) => {
 //     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
