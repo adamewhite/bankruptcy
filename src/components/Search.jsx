@@ -85,6 +85,8 @@ class Search extends Component {
             this.determineEligibleTrusts);
       })
       .catch(console.error);
+
+      // console.log("this.paginationObj", this.state.paginationObj);
   }
 
     // handling state methods

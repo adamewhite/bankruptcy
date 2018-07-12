@@ -15,10 +15,14 @@ var router = express.Router();
 
 //set our port to either a predetermined port number if you have set it up, or 3001
 var port = process.env.PORT || 3001;
+// var port = 3001;
 
 //db config
 // var mongoDB = 'mongodb://awhite:asby1!@ds161026.mlab.com:61026/asbestos_trust_db';
-var mongoDB = 'mongodb://aewhite:asby1!@ds121331.mlab.com:21331/heroku_t724l077';
+// var mongoDB = 'mongodb://aewhite:asby1!@ds161026.mlab.com:61026/asbestos_trust_db';
+
+var mongoDB = process.env.MONGODB_URI || "mongodb://aewhite:asby1!@ds161026.mlab.com:61026/asbestos_trust_db";
+
 mongoose.connect(mongoDB);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
