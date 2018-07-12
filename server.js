@@ -9,16 +9,12 @@ var bodyParser = require('body-parser');
 import sitesRoutes from './src/routes/sitesRoutes';
 import trustsRoutes from './src/routes/trustsRoutes';
 
-// console.log("trustsRoutes", trustsRoutes);
-// var App = require('./src/components/App');
-
-
 //and create our instances
 var app = express();
 var router = express.Router();
 
 //set our port to either a predetermined port number if you have set it up, or 3001
-var port = process.env.API_PORT || 3001;
+var port = process.env.PORT || 3001;
 
 //db config
 var mongoDB = 'mongodb://awhite:asby1!@ds161026.mlab.com:61026/asbestos_trust_db';
@@ -43,26 +39,13 @@ app.use(function(req, res, next) {
   next();
 });
 
-//now  we can set the route path & initialize the API
-router.get('/', function(req, res) {
-  res.json({ message: 'API Initialized!'});
-});
-
-// if (process.env.NODE_ENV === 'production') {
-// 	app.use(express.static('client/build'));
-// }
-
 if (process.env.NODE_ENV === 'production') {
       app.get(/^\/(?!api).*/, (req, res) => { // don't serve react app to api routes
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
       });
 };
 
-// app.get('*',(req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// });
-
-app.use('/api', app);
+app.use('/api', router);
 
 sitesRoutes(router);
 trustsRoutes(router);
@@ -70,5 +53,4 @@ trustsRoutes(router);
 //starts the server and listens for requests
 app.listen(port, function() {
   console.log(`api running on port ${port}`);
-  console.log("HEY HEY HEY HEY HEY");
 });
