@@ -62,10 +62,10 @@ if (process.env.NODE_ENV === 'production') {
 //     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
 // });
 
-app.use('/api', router);
+app.use('/api', trustsRoutes(router));
 
-sitesRoutes(router);
-trustsRoutes(router);
+// sitesRoutes(router);
+// trustsRoutes(router);
 
 //starts the server and listens for requests
 app.listen(port, function() {
