@@ -66,11 +66,11 @@ app.get("/api/sites", (req, res) => {
         if (err) {
           res.send(err);
         }
-        let trustList = [];
+        var trustList = [];
 
-        let data = { sites, trustList }
+        var data = { sites: sites, trustList: trustList };
 
-        res.json(data)
+        res.json(data);
       });
 });
 
