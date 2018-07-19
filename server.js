@@ -69,7 +69,11 @@ app.get("/api/sites", (req, res) => {
         }
         var trustList = [];
 
-        var data = { sites: sites, trustList: trustList };
+        var narrowedSiteCount = 1;
+        
+        var unnarrowedSiteCount = 1;
+
+        var data = { sites: sites, trustList: trustList, narrowedSiteCount: narrowedSiteCount, unnarrowedSiteCount: unnarrowedSiteCount };
 
         res.json(data);
       });
