@@ -62,7 +62,7 @@ app.get("/api/trusts", (req, res) => {
 });
 
 app.get("/api/sites", (req, res) => {
-      Site.find({"_id": "5b477eb6113c98984df3256c"}, function(err, sites) {
+      Site.find({"city": "LITTLE ROCK"}, function(err, sites) {
 
         if (err) {
           res.send(err);
