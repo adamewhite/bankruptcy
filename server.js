@@ -62,7 +62,7 @@ app.get("/api/trusts", (req, res) => {
 });
 
 app.get("/api/sites", (req, res) => {
-      Site.findOne(function(err, sites) {
+      Site.find().limit(10).toArray(function(err, sites) {
         if (err) {
           res.send(err);
         }
