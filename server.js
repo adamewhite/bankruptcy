@@ -62,7 +62,8 @@ app.get("/api/trusts", (req, res) => {
 });
 
 app.get("/api/sites", (req, res) => {
-      Site.findOne((function(err, sites) {
+      Site.findOne((err, sites) {
+
         if (err) {
           res.send(err);
         }
