@@ -62,7 +62,10 @@ class Search extends Component {
         .then(res => {
           this.setState({allTrusts: res.data});
         })
-        .catch(console.error);
+        .catch(error => {
+        	console.log(error); 
+        	// console.log("url", this.props.trustsUrl);
+        });
   }
 
   fetchSites () {
@@ -197,6 +200,7 @@ class Search extends Component {
 
   determineEligibleTrusts() {
     let eligibleTrusts = [];
+    console.log("this.state.allTrusts", this.state.allTrusts);
 
     eligibleTrusts = this.state.allTrusts.filter(trust => {
         return this.state.eligibleTrustIds.indexOf(trust._id) !== -1;

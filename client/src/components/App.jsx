@@ -95,16 +95,14 @@ class App extends Component {
                 <Route exact path={routes.SEARCH} render={() => (
                           this.state.authUser
                               ? <Search
-                                  trustsUrl="http://localhost:3100/api/trusts"
-                                  sitesUrl="http://localhost:3100/api/sites"
+                                  trustsUrl="/api/trusts"
+                                  sitesUrl="/api/sites"
                                 />
-                              : <Redirect to={{
-                                  pathname: '/'
-                                }} />
+                              : <LandingPage updateAuthUser={this.updateAuthUser}/>
                           )}
                 />
 
-                <Redirect to={{pathname: '/'}} />
+{/*                <Redirect to={{pathname: '/'}} />*/}
 
                </Switch>
 

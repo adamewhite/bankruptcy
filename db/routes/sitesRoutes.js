@@ -19,4 +19,4 @@ const routes = (app) => {
     .delete(deleteSite);
 }
 
-export default routes;
+export default sitesRoutes;

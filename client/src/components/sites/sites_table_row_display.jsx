@@ -19,6 +19,9 @@ class SitesTableRowDisplay extends Component {
 	findTrustName (trustId) {
     let trustName;
 
+    console.log("this.props.allTrusts", this.props.allTrusts);
+    console.log("trustId", trustId);
+
     if (this.props.allTrusts && this.props.allTrusts.length !== 0) {
       trustName = "Computing ...";
       trustName = this.props.allTrusts.filter((t) => {return t._id === trustId}).pop().name;
@@ -31,6 +34,8 @@ class SitesTableRowDisplay extends Component {
 	// render
 
     render () {
+    	console.log("site", this.props.site);
+
         return (
 	            <tr>
 	           		<td>{this.findTrustName(this.props.site.trust_id)}</td>
