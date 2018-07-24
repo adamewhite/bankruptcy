@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose';
 
 export const SitesSchema = new Schema({
-  trust_id: {type: Schema.ObjectId},
+  trust_id: Schema.ObjectId,
   name: {type: String},
   city: {type: String},
   state: {type: String},
